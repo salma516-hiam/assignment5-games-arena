@@ -1,0 +1,150 @@
+/* ===== Variables ===== */
+:root{
+  --ga-yellow:#d4ee1f;
+  --ga-bg:#0b0b0d;
+  --ga-card:#15161a;
+  --ga-navy:#22304a;
+  --ga-text:#fff;
+  --ga-muted:#c9ccd3;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ga-bg);color:var(--ga-text);font-family:'Chakra Petch',sans-serif;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Orbitron',sans-serif;font-weight:900}
+.text-ga{color:var(--ga-yellow)}
+.section{padding:100px 0;scroll-margin-top:70px}
+.section-head{margin-bottom:56px}
+.section-head h2{font-size:clamp(1.9rem,4vw,3.2rem)}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--ga-yellow);font-family:'Orbitron',sans-serif;font-weight:700;letter-spacing:.2em;font-size:.9rem;margin-bottom:14px}
+.eyebrow::before,.eyebrow::after{content:"";width:60px;height:2px;background:var(--ga-yellow)}
+.lead-sm{color:var(--ga-muted);font-size:1.15rem;margin-top:12px}
+
+/* ===== Buttons + shine ===== */
+.btn-ga,.btn-ga-outline{position:relative;overflow:hidden;font-weight:600;border-radius:10px;border:2px solid var(--ga-yellow);transition:.3s}
+.btn-ga{background:var(--ga-yellow);color:#111}
+.btn-ga:hover,.btn-ga:focus{background:var(--ga-yellow);color:#111;border-color:var(--ga-yellow)}
+.btn-ga-outline{background:transparent;color:var(--ga-yellow)}
+.btn-ga-outline:hover{background:var(--ga-yellow);color:#111}
+.btn-ga::before,.btn-ga-outline::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg)}
+.btn-ga:hover::before,.btn-ga-outline:hover::before{animation:shine .8s ease}
+@keyframes shine{to{left:130%}}
+
+/* ===== Navbar ===== */
+.ga-navbar{background:rgba(15,16,20,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 0}
+.ga-brand{color:var(--ga-yellow)!important;font-family:'Orbitron',sans-serif;font-weight:700;font-size:1.5rem;text-decoration:none}
+.ga-navbar .nav-link{color:#fff;font-weight:500;padding:.5rem 1rem;transition:color .3s}
+.ga-navbar .nav-link:hover,.ga-navbar .nav-link.active{color:var(--ga-yellow)}
+.icon-btn{background:none;border:0;color:#fff;font-size:1.2rem;transition:color .3s}
+.icon-btn:hover{color:var(--ga-yellow)}
+
+/* ===== Hero ===== */
+.hero{min-height:100vh;padding-top:90px;
+  background:linear-gradient(rgba(10,10,12,.82),rgba(10,10,12,.82)),url("images/hero-bg.jpg") center/cover no-repeat}
+.hero-title{font-size:clamp(2.4rem,5.5vw,4.6rem);line-height:1.15}
+.hero-text{color:#e6e6e6;font-size:1.1rem;max-width:560px}
+.hero-img-wrap{position:relative}
+.hero-img{border:4px solid #8be83a;border-radius:22px;width:100%;display:block}
+.stat-badge{position:absolute;left:-30px;bottom:-30px;background:#0e0f13;border:1px solid #2a2f3b;border-radius:14px;padding:18px 28px;display:flex;align-items:center;gap:16px}
+.stat-badge i{color:var(--ga-yellow);font-size:2rem}
+.stat-badge small{display:block;color:var(--ga-muted)}
+.stat-badge strong{font-size:1.5rem;font-family:'Orbitron',sans-serif}
+
+/* ===== Games carousel ===== */
+.game-card{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3}
+.game-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.game-overlay{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;justify-content:space-between;
+  background:linear-gradient(to top,rgba(212,238,31,1) 0%,rgba(190,235,30,.95) 22%,rgba(150,225,40,.45) 50%,transparent 75%);color:#111;opacity:0;transition:opacity .4s}
+.game-card{border:2px solid transparent;transition:border-color .4s}
+.game-card:hover{border-color:var(--ga-yellow)}
+.game-card:hover .game-overlay{opacity:1}
+.game-card:hover img{transform:scale(1.08)}
+.game-tag{background:rgba(0,0,0,.65);color:#fff;border-radius:20px;padding:6px 14px;font-size:.75rem;font-weight:700;text-transform:uppercase;backdrop-filter:blur(4px)}
+.game-tag i{color:var(--ga-yellow);margin-right:4px}
+.game-title{font-size:1rem;font-family:'Chakra Petch',sans-serif;font-weight:600;margin:0}
+.circle-btn{width:52px;height:52px;border-radius:50%;background:transparent;color:#fff;border:2px solid #3b4a6b;transition:.3s}
+.circle-btn:hover,.circle-btn:active,.circle-btn:focus{border-color:var(--ga-yellow);color:var(--ga-yellow)}
+
+/* ===== What we do ===== */
+.service-card,.service-img{height:100%;min-height:260px;border-radius:20px;overflow:hidden}
+.service-card{position:relative;background:var(--ga-card);border:1px solid rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 20px;transition:.35s}
+.service-card h3{font-size:1.05rem;margin:0}
+.service-icon{width:56px;height:56px;display:grid;place-items:center;border-radius:12px;background:var(--ga-navy);color:var(--ga-yellow);font-size:1.4rem;margin-bottom:18px;transition:.35s}
+.service-arrow{display:none}
+/* hover: yellow border + yellow corner triangles (top-left / bottom-right) + icon box turns yellow */
+.service-card{border:1px solid transparent}
+.service-card::before,.service-card::after{content:"";position:absolute;width:16px;height:16px;background:var(--ga-yellow);opacity:0;transition:opacity .35s}
+.service-card::before{top:12px;left:12px;clip-path:polygon(0 0,100% 0,0 100%)}
+.service-card::after{bottom:12px;right:12px;clip-path:polygon(100% 0,100% 100%,0 100%)}
+.service-card:hover{border-color:var(--ga-yellow)}
+.service-card:hover::before,.service-card:hover::after{opacity:1}
+.service-card:hover .service-icon{background:var(--ga-yellow);color:#111}
+.service-img img{width:100%;height:100%;object-fit:cover}
+.glow-line{height:3px;width:60%;margin:60px auto 0;background:linear-gradient(90deg,transparent,var(--ga-yellow),transparent);box-shadow:0 0 25px var(--ga-yellow)}
+
+/* ===== Logos marquee ===== */
+.marquee{margin-top:0;padding:50px 0;background:radial-gradient(ellipse at center,rgba(212,238,31,.45),transparent 65%);overflow:hidden}
+.marquee-row{overflow:hidden;margin-bottom:16px}
+.marquee-track{display:flex;gap:16px;width:max-content;animation:scrollL 40s linear infinite}
+.marquee-track.reverse{animation-name:scrollR}
+.marquee-track img{width:120px;height:120px;object-fit:cover;border-radius:16px;flex-shrink:0}
+@keyframes scrollL{to{transform:translateX(-50%)}}
+@keyframes scrollR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+/* ===== Team ===== */
+.team-card{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/4;background:#111;cursor:pointer}
+.team-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.team-img-bw{filter:grayscale(1)}
+.team-img-color{clip-path:inset(100% 0 0 0);transition:clip-path .6s ease}   /* hidden: clipped from the top */
+.team-card:hover .team-img-color{clip-path:inset(0 0 0 0)}                  /* grows bottom -> top, leaves top -> bottom */
+.team-card::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.85));pointer-events:none}
+.team-info{position:absolute;left:18px;bottom:18px;right:50px;z-index:2}
+.team-info h3{font-size:1.05rem;margin-bottom:6px}
+.team-info p{margin:0;font-size:.85rem}
+.team-info .ach{color:var(--ga-muted);font-size:.75rem;transition:color .4s}
+.team-card:hover .role,.team-card:hover .ach,.team-card:hover .team-alias{color:var(--ga-yellow)}
+.team-alias{position:absolute;right:12px;bottom:18px;z-index:2;writing-mode:vertical-rl;font-family:'Orbitron',sans-serif;font-weight:900;font-size:.8rem;letter-spacing:.1em;transition:color .4s}
+
+/* ===== Contact ===== */
+.contact{background:linear-gradient(180deg,#0b0b0d,#0d1424 60%,#0b0b0d)}
+.info-card{display:flex;align-items:center;gap:20px;padding:30px;margin-bottom:24px;border-radius:20px;background:linear-gradient(135deg,#3b4d6b,#22304a)}
+.info-card h3{font-size:1.1rem;margin-bottom:4px}
+.info-card p{margin:0;color:var(--ga-muted)}
+.info-icon{flex:0 0 56px;height:56px;border-radius:50%;background:var(--ga-yellow);color:#111;display:grid;place-items:center;font-size:1.3rem}
+.community{padding:30px;border-radius:20px;background:linear-gradient(135deg,var(--ga-yellow),#7fe36b);color:#111}
+.community p{color:#2a3a10}
+.social-dark{width:44px;height:44px;border-radius:50%;background:#111;color:var(--ga-yellow);display:grid;place-items:center;text-decoration:none;font-size:1.2rem;transition:.3s}
+.social-dark:hover{background:#fff;color:#111;transform:translateY(-4px)}
+.contact-form{padding:32px;border-radius:20px;background:linear-gradient(135deg,#22304a,#2c3d5c)}
+.contact-form h3{font-size:1.4rem;margin-bottom:20px}
+.form-label{font-weight:600;font-size:.9rem}
+.form-control,.form-select{background:rgba(120,135,160,.55);border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:.75rem 1rem}
+.form-control::placeholder{color:#e1e5ee}
+.form-control:focus,.form-select:focus{background:rgba(120,135,160,.7);color:#fff;border-color:var(--ga-yellow);box-shadow:0 0 0 .2rem rgba(212,238,31,.25)}
+.form-select option{color:#111}
+.form-check-input{width:1.4em;height:1.4em;background-color:#fff;border-color:var(--ga-yellow)}
+.form-check-input:checked{background-color:var(--ga-yellow);border-color:var(--ga-yellow)}
+.form-check-label{margin-left:.4rem;color:#e6e6e6}
+.mini-stat{color:var(--ga-yellow);font-family:'Orbitron',sans-serif;font-weight:900;font-size:1.6rem}
+
+/* ===== Footer ===== */
+.ga-footer{background:#08080a;padding:70px 0 30px;color:var(--ga-muted)}
+.ga-footer h4{color:#fff;font-size:1.1rem;margin-bottom:20px}
+.footer-links a{color:#fff;text-decoration:none;display:inline-block;margin-bottom:10px;transition:color .3s}
+.footer-links a:hover{color:var(--ga-yellow)}
+.social-light a{color:#fff;font-size:1.2rem;transition:.3s}
+.social-light a:hover{color:var(--ga-yellow);transform:translateY(-3px)}
+.footer-bottom .footer-links a{margin:0}
+.ga-footer hr{border-color:#222}
+
+@media (max-width:991px){.stat-badge{left:10px;bottom:-20px}.section{padding:70px 0}}
+
+/* ===== Mobile-first tweaks (base styles are mobile; Bootstrap breakpoints scale up) ===== */
+.hero{padding-bottom:60px}
+.stat-badge{left:10px;bottom:-20px;padding:12px 18px}
+.marquee-track img{width:90px;height:90px}
+.team-info h3{font-size:.85rem}
+.info-card{padding:20px;gap:14px}
+.contact-form{padding:22px}
+@media (min-width:768px){.marquee-track img{width:120px;height:120px}.team-info h3{font-size:1.05rem}.info-card{padding:30px;gap:20px}.contact-form{padding:32px}}
+@media (min-width:992px){.stat-badge{left:-30px;bottom:-30px;padding:18px 28px}}
+@media (hover:none){.game-overlay{opacity:1}}
